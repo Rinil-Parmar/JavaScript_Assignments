@@ -46,28 +46,32 @@ function addOrUpdateEmployee() {
   clearInputs();
 }
 
+
 // Function to display the list of employees in the table
 function displayEmployees() {
   // Get the table element
-  const table = document.getElementById("employeeTable");
-  table.innerHTML =
-    "<tr><th>Name</th><th>Address</th><th>Employee ID</th><th>Designation</th><th>Action</th></tr>";
+  const table = document.getElementById('employeeTable');
+  // Clear the table content
+  table.innerHTML = "<tr><th>Name</th><th>Address</th><th>Employee ID</th><th>Designation</th><th>Action</th></tr>";
 
   // Loop through the employees array and add each employee to the table
   employees.forEach((employee, index) => {
     const row = table.insertRow();
+    // Add employee details to the row cells
     row.insertCell(0).textContent = employee.name;
     row.insertCell(1).textContent = employee.address;
     row.insertCell(2).textContent = employee.empId;
     row.insertCell(3).textContent = employee.designation;
-    // Create an 'Edit' button for each employee
+
+    const editButtonCell = row.insertCell(4);
     const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
     // Set an onclick event for the 'Edit' button to call the editEmployee function with the index of the employee
     editButton.onclick = function () {
       editEmployee(index);
     };
-    row.insertCell(4).appendChild(editButton);
+    // Add the 'Edit' button to the row
+    editButtonCell.appendChild(editButton);
   });
 }
 
