@@ -47,7 +47,6 @@ function addOrUpdateEmployee() {
 }
 
 
-// Function to display the list of employees in the table
 function displayEmployees() {
   // Get the table element
   const table = document.getElementById('employeeTable');
@@ -63,17 +62,30 @@ function displayEmployees() {
     row.insertCell(2).textContent = employee.empId;
     row.insertCell(3).textContent = employee.designation;
 
-    const editButtonCell = row.insertCell(4);
+    // Add action buttons to the row
+    const actionCell = row.insertCell(4);
     const editButton = document.createElement("button");
     editButton.innerHTML = '<i class="fas fa-edit"></i>';
-    // Set an onclick event for the 'Edit' button to call the editEmployee function with the index of the employee
     editButton.onclick = function () {
       editEmployee(index);
     };
-    // Add the 'Edit' button to the row
-    editButtonCell.appendChild(editButton);
+    actionCell.appendChild(editButton);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteButton.onclick = function () {
+      deleteEmployee(index);
+    };
+    actionCell.appendChild(deleteButton);
   });
 }
+
+// Function to delete an employee
+function deleteEmployee(index) {
+  employees.splice(index, 1); // Remove the employee from the array
+  displayEmployees(); // Update the table display
+}
+
 
 // Function to populate input fields with the details of the employee being edited
 function editEmployee(index) {

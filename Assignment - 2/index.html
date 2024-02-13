@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Management System</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Link to external CSS file -->
-    <script src="script.js" defer></script>
-    <!-- Link to external JavaScript file with defer attribute for deferred execution -->
+    <!-- Link to Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <h2>Employee Management System</h2>
@@ -23,13 +22,11 @@
       <label for="address">Address:</label>
       <input type="text" id="address" required />
       <input type="hidden" id="empId" />
-      <!-- Hidden input field for Employee ID -->
       <label for="designation">Designation:</label>
       <input type="text" id="designation" required />
       <button id="addOrUpdateButton" onclick="addOrUpdateEmployee()">
         Add Employee
       </button>
-      <!-- Button to add or update employee -->
     </div>
 
     <!-- Table Container -->
